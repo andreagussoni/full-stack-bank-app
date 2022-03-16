@@ -19,7 +19,7 @@ app.use("/auth", authRouter);
 app.use("/bank", authenticateJWT, bankapiRouter);
 
 app.use(express.static(new URL("./client/build", import.meta.url).pathname));
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(new URL("./client/build/index.html", import.meta.url).pathname);
 });
 
